@@ -1,0 +1,35 @@
+{
+  "name": "blockpit/mautic-adapter",
+  "description": "Adapter for Mautic API for usage in a Laravel project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Wolfgang Eßl",
+      "email": "developer@blockpit.io"
+    }
+  ],
+  "require-dev": {
+    "orchestra/testbench": "~3.0",
+    "phpunit/phpunit": "6.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "blockpit\\MauticAdapter\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "blockpit\\MauticAdapter\\Tests\\": "tests/"
+    }
+  },
+  "suggest": {
+    "ext-yaml": "Required to use the YAML output option"
+  },
+  "extra": {
+    "laravel": {
+    }
+  },
+  "require": {
+    "mautic/api-library": "^2.15"
+  }
+}
