@@ -10,7 +10,6 @@ class Contacts extends MauticApiBase
 {
     /**
      * Contacts constructor.
-     * @throws \Mautic\Exception\ContextNotFoundException
      */
     public function __construct()
     {
@@ -20,7 +19,6 @@ class Contacts extends MauticApiBase
     /**
      * @param int $id
      * @return mixed
-     * @throws \App\Exceptions\MauticBaseException
      */
     public function get(int $id)
     {
@@ -29,7 +27,6 @@ class Contacts extends MauticApiBase
 
     /**
      * @return mixed
-     * @throws \App\Exceptions\MauticBaseException
      */
     public function getFieldList()
     {
@@ -39,7 +36,6 @@ class Contacts extends MauticApiBase
     /**
      * @param string $searchQuery
      * @return mixed
-     * @throws \App\Exceptions\MauticBaseException
      */
     public function getList(string $searchQuery)
     {
@@ -49,7 +45,6 @@ class Contacts extends MauticApiBase
     /**
      * @param array $params
      * @return mixed
-     * @throws \App\Exceptions\MauticBaseException
      */
     public function create(array $params)
     {

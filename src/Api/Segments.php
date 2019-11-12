@@ -9,8 +9,7 @@ namespace blockpit\MauticAdapter\Api;
 class Segments extends MauticApiBase
 {
     /**
-     * Campaigns constructor.
-     * @throws \Mautic\Exception\ContextNotFoundException
+     * Segments constructor.
      */
     public function __construct()
     {
@@ -39,7 +38,7 @@ class Segments extends MauticApiBase
      * @param int $segmentId
      * @param int $contactId
      * @return mixed
-     * @throws \App\Exceptions\MauticBaseException
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function addContact(int $segmentId, int $contactId)
     {
@@ -50,7 +49,7 @@ class Segments extends MauticApiBase
      * @param int $segmentId
      * @param int $contactId
      * @return mixed
-     * @throws \App\Exceptions\MauticBaseException
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function removeContact(int $segmentId, int $contactId)
     {
