@@ -36,6 +36,15 @@ class Emails extends MauticApiBase
     }
 
     /**
+     * @param int $id
+     * @return mixed|void
+     */
+    public function delete(int $id)
+    {
+        return $this->endpoint->delete($id);
+    }
+
+    /**
      * Sends email to contact
      * @param int $emailId
      * @param int $contactId
