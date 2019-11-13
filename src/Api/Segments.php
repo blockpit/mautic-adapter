@@ -2,6 +2,8 @@
 
 namespace blockpit\MauticAdapter\Api;
 
+use blockpit\MauticAdapter\Exceptions\MauticBaseException;
+
 /**
  * Class Segments
  * @package  blockpit\MauticAdapter\Api;

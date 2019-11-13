@@ -24,20 +24,6 @@ abstract class MauticApiBase
     public abstract function get(int $id);
 
     /**
-     * @param array $params
-     * @return mixed
-     */
-    public abstract function create(array $params);
-
-    /**
-     * @param int $id
-     * @param array $params
-     * @param bool $createIfNotFound
-     * @return mixed
-     */
-    public abstract function edit(int $id, array $params, bool $createIfNotFound = false);
-
-    /**
      * @param int $id
      * @return mixed
      */
