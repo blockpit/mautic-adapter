@@ -27,34 +27,16 @@ class Emails extends MauticApiBase
     }
 
     /**
-     * @param array $params
-     * @return mixed|void
+     * @param string $searchQuery
+     * @return mixed
      */
-    public function create(array $params)
+    public function getList(string $searchQuery)
     {
-        // TODO: Implement create() method.
+        return $this->endpoint->getList($searchQuery);
     }
 
     /**
-     * @param int $id
-     * @param array $params
-     * @return mixed|void
-     */
-    public function edit(int $id, array $params)
-    {
-        // TODO: Implement edit() method.
-    }
-
-    /**
-     * @param int $id
-     * @return mixed|void
-     */
-    public function delete(int $id)
-    {
-        // TODO: Implement delete() method.
-    }
-
-    /**
+     * Sends email to contact
      * @param int $emailId
      * @param int $contactId
      * @param array $params
@@ -66,6 +48,7 @@ class Emails extends MauticApiBase
     }
 
     /**
+     * Sends email to segment by Id
      * @param int $segmentId
      * @return mixed
      */

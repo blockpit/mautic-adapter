@@ -26,15 +26,6 @@ class Segments extends MauticApiBase
     }
 
     /**
-     * @param array $params
-     * @return mixed|void
-     */
-    public function create(array $params)
-    {
-        // TODO: Implement create() method.
-    }
-
-    /**
      * @param int $segmentId
      * @param int $contactId
      * @return mixed
@@ -58,20 +49,10 @@ class Segments extends MauticApiBase
 
     /**
      * @param int $id
-     * @param array $params
-     * @return mixed|void
-     */
-    public function edit(int $id, array $params)
-    {
-        // TODO: Implement edit() method.
-    }
-
-    /**
-     * @param int $id
      * @return mixed|void
      */
     public function delete(int $id)
     {
-        // TODO: Implement delete() method.
+        return $this->endpoint->delete($id);
     }
 }

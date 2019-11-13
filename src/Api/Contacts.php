@@ -26,6 +26,7 @@ class Contacts extends MauticApiBase
     }
 
     /**
+     * Lists available fields of contact
      * @return mixed
      */
     public function getFieldList()
@@ -34,6 +35,7 @@ class Contacts extends MauticApiBase
     }
 
     /**
+     * Lists Contacts according to search string
      * @param string $searchQuery
      * @return mixed
      */
@@ -43,6 +45,7 @@ class Contacts extends MauticApiBase
     }
 
     /**
+     * Creates a contact
      * @param array $params
      * @return mixed
      */
@@ -52,21 +55,24 @@ class Contacts extends MauticApiBase
     }
 
     /**
+     * Edits contact
      * @param int $id
      * @param array $params
-     * @return mixed|void
+     * @param bool $createIfNotFound
+     * @return mixed
      */
-    public function edit(int $id, array $params)
+    public function edit(int $id, array $params, bool $createIfNotFound)
     {
-        return $this->endpoint->edit($id, $params, false);
+        return $this->endpoint->edit($id, $params, $createIfNotFound);
     }
 
     /**
+     * Deletes Contact
      * @param int $id
      * @return mixed|void
      */
     public function delete(int $id)
     {
-        return $this->endpoint->edit($id, $params, false);
+        return $this->endpoint->delete($id);
     }
 }

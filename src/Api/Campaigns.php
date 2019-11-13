@@ -37,11 +37,12 @@ class Campaigns extends MauticApiBase
     /**
      * @param int $id
      * @param array $params
-     * @return mixed|void
+     * @param bool $createIfNotFound
+     * @return mixed
      */
-    public function edit(int $id, array $params)
+    public function edit(int $id, array $params, bool $createIfNotFound)
     {
-        return $this->endpoint->edit($id, $params);
+        return $this->endpoint->edit($id, $params, $createIfNotFound);
     }
 
     /**
@@ -51,5 +52,27 @@ class Campaigns extends MauticApiBase
     public function delete(int $id)
     {
         return $this->endpoint->delete($id);
+    }
+
+    /**
+     * @param int $campaignId
+     * @param int $contactId
+     * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
+     */
+    public function addContact(int $campaignId, int $contactId)
+    {
+        return parent::handleResult($this->endpoint->addContact($campaignId, $contactId));
+    }
+
+    /**
+     * @param int $campaignId
+     * @param int $contactId
+     * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
+     */
+    public function removeContact(int $campaignId, int $contactId)
+    {
+        return parent::handleResult($this->endpoint->removeContact($campaignId, $contactId));
     }
 }

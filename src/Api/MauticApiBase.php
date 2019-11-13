@@ -32,9 +32,10 @@ abstract class MauticApiBase
     /**
      * @param int $id
      * @param array $params
+     * @param bool $createIfNotFound
      * @return mixed
      */
-    public abstract function edit(int $id, array $params);
+    public abstract function edit(int $id, array $params, bool $createIfNotFound = false);
 
     /**
      * @param int $id
