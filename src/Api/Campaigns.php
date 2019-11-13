@@ -18,20 +18,22 @@ class Campaigns extends MauticApiBase
 
     /**
      * @param int $id
-     * @return array|mixed
+     * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function get(int $id)
     {
-        return $this->endpoint->get($id);
+        return parent::handleResult($this->endpoint->get($id));
     }
 
     /**
      * @param array $params
-     * @return mixed|void
+     * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function create(array $params)
     {
-        return $this->endpoint->create($params);
+        return parent::handleResult($this->endpoint->create($params));
     }
 
     /**
@@ -39,19 +41,21 @@ class Campaigns extends MauticApiBase
      * @param array $params
      * @param bool $createIfNotFound
      * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function edit(int $id, array $params, bool $createIfNotFound = false)
     {
-        return $this->endpoint->edit($id, $params, $createIfNotFound);
+        return parent::handleResult($this->endpoint->edit($id, $params, $createIfNotFound));
     }
 
     /**
      * @param int $id
-     * @return mixed|void
+     * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function delete(int $id)
     {
-        return $this->endpoint->delete($id);
+        return parent::handleResult($this->endpoint->delete($id));
     }
 
     /**

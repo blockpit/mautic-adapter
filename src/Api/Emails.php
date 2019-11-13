@@ -19,50 +19,53 @@ class Emails extends MauticApiBase
 
     /**
      * @param int $id
-     * @return array|mixed
+     * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function get(int $id)
     {
-        return $this->endpoint->get($id);
+        return parent::handleResult($this->endpoint->get($id));
     }
 
     /**
      * @param string $searchQuery
      * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function getList(string $searchQuery)
     {
-        return $this->endpoint->getList($searchQuery);
+        return parent::handleResult($this->endpoint->getList($searchQuery));
     }
 
     /**
      * @param int $id
-     * @return mixed|void
+     * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function delete(int $id)
     {
-        return $this->endpoint->delete($id);
+        return parent::handleResult($this->endpoint->delete($id));
     }
 
     /**
-     * Sends email to contact
      * @param int $emailId
      * @param int $contactId
      * @param array $params
      * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function sendToContact(int $emailId, int $contactId, array $params)
     {
-        return $this->endpoint->sendToContact($emailId, $contactId, $params);
+        return parent::handleResult($this->endpoint->sendToContact($emailId, $contactId, $params));
     }
 
     /**
-     * Sends email to segment by Id
      * @param int $segmentId
      * @return mixed
+     * @throws \blockpit\MauticAdapter\Exceptions\MauticBaseException
      */
     public function send(int $segmentId)
     {
-        return $this->endpoint->send($segmentId);
+        return parent::handleResult($this->endpoint->send($segmentId));
     }
 }

@@ -20,11 +20,12 @@ class Segments extends MauticApiBase
 
     /**
      * @param int $id
-     * @return array|mixed
+     * @return mixed
+     * @throws MauticBaseException
      */
     public function get(int $id)
     {
-        return $this->endpoint->get($id);
+        return parent::handleResult($this->endpoint->get($id));
     }
 
     /**
@@ -51,10 +52,11 @@ class Segments extends MauticApiBase
 
     /**
      * @param int $id
-     * @return mixed|void
+     * @return mixed
+     * @throws MauticBaseException
      */
     public function delete(int $id)
     {
-        return $this->endpoint->delete($id);
+        return parent::handleResult($this->endpoint->delete($id));
     }
 }

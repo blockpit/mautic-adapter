@@ -2,6 +2,7 @@
 
 namespace blockpit\MauticAdapter\Api;
 
+use blockpit\MauticAdapter\Exceptions\MauticAuthenticationException;
 use blockpit\MauticAdapter\Exceptions\MauticBaseException;
 use Mautic\Auth\ApiAuth;
 use Mautic\MauticApi;
@@ -45,7 +46,8 @@ abstract class MauticApiBase
             'password' => env('MAUTIC_PASSWORD'),
         ], 'BasicAuth');
 
-        $this->endpoint = $api->newApi($endpoint, $authentication, $baseUrl);;
+        $this->endpoint = $api->newApi($endpoint, $authentication, $baseUrl);
+
     }
 
     /**
@@ -55,7 +57,22 @@ abstract class MauticApiBase
      */
     public static function handleResult($result)
     {
-        if (!isset($result['success'])) {
+        if (isset($result['errors'])) {
+            switch ($result['errors'][0]['code']) {
+                case 401:
+                    throw new MauticBaseException(
+                        'Mautic Api Access denied - maybe authentication fails',
+                        401);
+                    break;
+                case 404:
+                    throw new MauticBaseException(
+                        'Some Id not found.',
+                        404);
+                    break;
+            }
+        }
+
+        if (isset($result['success']) && !$result['success']) {
             throw new MauticBaseException('Mautic API Error', 400);
         }
 
