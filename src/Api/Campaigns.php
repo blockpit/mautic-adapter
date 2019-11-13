@@ -40,7 +40,7 @@ class Campaigns extends MauticApiBase
      * @param bool $createIfNotFound
      * @return mixed
      */
-    public function edit(int $id, array $params, bool $createIfNotFound)
+    public function edit(int $id, array $params, bool $createIfNotFound = false)
     {
         return $this->endpoint->edit($id, $params, $createIfNotFound);
     }
