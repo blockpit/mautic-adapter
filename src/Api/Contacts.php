@@ -24,7 +24,7 @@ class Contacts extends MauticApiBase
     public function get(int $id)
     {
         return parent::handleResult($this->endpoint->get($id));
-    }y
+    }
 
     /**
      * @return mixed
