@@ -10,7 +10,6 @@ class Campaigns extends MauticApiBase
 {
     /**
      * Campaigns constructor.
-     * @throws \Mautic\Exception\ContextNotFoundException
      */
     public function __construct()
     {
@@ -32,7 +31,7 @@ class Campaigns extends MauticApiBase
      */
     public function create(array $params)
     {
-        // TODO: Implement create() method.
+        return $this->endpoint->create($params);
     }
 
     /**
@@ -42,7 +41,7 @@ class Campaigns extends MauticApiBase
      */
     public function edit(int $id, array $params)
     {
-        // TODO: Implement edit() method.
+        return $this->endpoint->edit($id, $params);
     }
 
     /**
@@ -51,6 +50,6 @@ class Campaigns extends MauticApiBase
      */
     public function delete(int $id)
     {
-        // TODO: Implement delete() method.
+        return $this->endpoint->delete($id);
     }
 }

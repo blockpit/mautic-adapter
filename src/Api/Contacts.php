@@ -67,6 +67,6 @@ class Contacts extends MauticApiBase
      */
     public function delete(int $id)
     {
-        // TODO: Implement delete() method.
+        return $this->endpoint->edit($id, $params, false);
     }
 }
