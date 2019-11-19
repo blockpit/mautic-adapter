@@ -31,6 +31,6 @@
   },
   "require": {
     "mautic/api-library": "^2.15",
-    "illuminate/support": "^6",
+    "illuminate/support": "^6"
   }
 }
