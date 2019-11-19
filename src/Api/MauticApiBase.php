@@ -37,12 +37,12 @@ abstract class MauticApiBase
     public function __construct(string $endpoint)
     {
         $api = new MauticApi();
-        $baseUrl = config('mautic_address', '');
+        $baseUrl = config('mautic_address', 'default');
 
         $initAuth = new ApiAuth();
         $authentication = $initAuth->newAuth([
-            'userName' => config('user_name', ''),
-            'password' => config('password', ''),
+            'userName' => config('user_name', 'default'),
+            'password' => config('password', 'default'),
         ], 'BasicAuth');
 
         //$this->endpoint = $api->newApi($endpoint, $authentication, $baseUrl);
