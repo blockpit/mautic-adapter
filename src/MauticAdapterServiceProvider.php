@@ -2,7 +2,6 @@
 
 namespace blockpit\MauticAdapter;
 
-use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -11,33 +10,23 @@ use Illuminate\Support\ServiceProvider;
  */
 class MauticAdapterServiceProvider extends ServiceProvider
 {
+
     /**
-     * Register the service provider.
+     * Bootstrap any application services.
      *
      * @return void
      */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * Add the Cors middleware to the router.
-     *
-     */
     public function boot()
     {
-        $source = realpath($raw = __DIR__.'/../config/mauticconfig.php') ?: $raw;
+        $source = __DIR__.'/../config/mauticconfig.php';
 
-        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
-            $this->publishes([$source => config_path('mauticconfig.php')]);
-        }
+        $this->publishes([
+            $source => config_path('mauticconfig.php'),
+        ]);
 
-        if ($this->app instanceof LaravelApplication && ! $this->app->configurationIsCached()) {
-            $this->mergeConfigFrom($source, 'mauticconfig');
-        }
+        $this->mergeConfigFrom(
+            $source, 'mauticconfig'
+        );
     }
-
-
 
 }
