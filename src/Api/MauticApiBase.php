@@ -2,7 +2,6 @@
 
 namespace blockpit\MauticAdapter\Api;
 
-use blockpit\MauticAdapter\Exceptions\MauticAuthenticationException;
 use blockpit\MauticAdapter\Exceptions\MauticBaseException;
 use Mautic\Auth\ApiAuth;
 use Mautic\MauticApi;
@@ -38,12 +37,12 @@ abstract class MauticApiBase
     public function __construct(string $endpoint)
     {
         $api = new MauticApi();
-        $baseUrl = env('MAUTIC_ADDRESS');
+        $baseUrl = config('mautic_address');
 
         $initAuth = new ApiAuth();
         $authentication = $initAuth->newAuth([
-            'userName' => env('MAUTIC_USER'),
-            'password' => env('MAUTIC_PASSWORD'),
+            'userName' => config('user_name'),
+            'password' => config('password'),
         ], 'BasicAuth');
 
         $this->endpoint = $api->newApi($endpoint, $authentication, $baseUrl);
