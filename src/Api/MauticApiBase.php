@@ -37,12 +37,13 @@ abstract class MauticApiBase
     public function __construct(string $endpoint)
     {
         $api = new MauticApi();
-        $baseUrl = config('mautic_address');
+        //$baseUrl = config('mautic_address');
+        $baseUrl = 'https://mautic.blockpit.io/api';
 
         $initAuth = new ApiAuth();
         $authentication = $initAuth->newAuth([
-            'userName' => config('user_name'),
-            'password' => config('password'),
+            'userName' => 'blockpit_test', //config('user_name'),
+            'password' => 'test1234', //config('password'),
         ], 'BasicAuth');
 
         $this->endpoint = $api->newApi($endpoint, $authentication, $baseUrl);
