@@ -45,7 +45,7 @@ abstract class MauticApiBase
             'password' => config('password'),
         ], 'BasicAuth');
 
-        $this->endpoint = $api->newApi($endpoint, $authentication, $baseUrl);
+        //$this->endpoint = $api->newApi($endpoint, $authentication, $baseUrl);
 
     }
 
