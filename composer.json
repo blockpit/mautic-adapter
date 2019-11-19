@@ -27,6 +27,9 @@
   },
   "extra": {
     "laravel": {
+      "providers": [
+        "blockpit\\MauticAdapter\\MauticAdapterServiceProvider"
+      ]
     }
   },
   "require": {
